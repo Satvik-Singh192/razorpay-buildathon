@@ -1,0 +1,1754 @@
+[
+  {
+    "id": "INV-0001",
+    "merchant_id": "MER-009",
+    "debtor_id": "DEB-0001",
+    "debtor_name": "Nikhil Enterprises",
+    "amount": 7100,
+    "currency": "INR",
+    "issued_date": "2026-05-12",
+    "due_date": "2026-07-11",
+    "payment_terms_days": 60,
+    "days_overdue": 51,
+    "industry_category": "Facility Management",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-02",
+          "amount": 7100
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0002",
+    "merchant_id": "MER-009",
+    "debtor_id": "DEB-0002",
+    "debtor_name": "Surat Packaging",
+    "amount": 20000,
+    "currency": "INR",
+    "issued_date": "2026-07-02",
+    "due_date": "2026-08-01",
+    "payment_terms_days": 30,
+    "days_overdue": 30,
+    "industry_category": "Pharma Distribution",
+    "ground_truth_behavior": "negotiates_keeps_promise",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-14",
+          "promised_amount": 20000,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-13",
+          "amount": 20000
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 30
+    }
+  },
+  {
+    "id": "INV-0003",
+    "merchant_id": "MER-010",
+    "debtor_id": "DEB-0003",
+    "debtor_name": "Anaya Traders",
+    "amount": 33900,
+    "currency": "INR",
+    "issued_date": "2026-04-28",
+    "due_date": "2026-06-27",
+    "payment_terms_days": 60,
+    "days_overdue": 65,
+    "industry_category": "Printing & Signage",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-02",
+          "amount": 33900
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0004",
+    "merchant_id": "MER-001",
+    "debtor_id": "DEB-0004",
+    "debtor_name": "Kabir Solutions",
+    "amount": 27800,
+    "currency": "INR",
+    "issued_date": "2026-07-13",
+    "due_date": "2026-08-12",
+    "payment_terms_days": 30,
+    "days_overdue": 19,
+    "industry_category": "Logistics",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-02",
+          "amount": 27800
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 30
+    }
+  },
+  {
+    "id": "INV-0005",
+    "merchant_id": "MER-010",
+    "debtor_id": "DEB-0005",
+    "debtor_name": "Kabir Enterprises",
+    "amount": 8500,
+    "currency": "INR",
+    "issued_date": "2026-04-26",
+    "due_date": "2026-06-25",
+    "payment_terms_days": 60,
+    "days_overdue": 67,
+    "industry_category": "Logistics",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-01",
+          "amount": 8500
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0006",
+    "merchant_id": "MER-001",
+    "debtor_id": "DEB-0006",
+    "debtor_name": "Neha Fabrics",
+    "amount": 5000,
+    "currency": "INR",
+    "issued_date": "2026-03-21",
+    "due_date": "2026-06-19",
+    "payment_terms_days": 90,
+    "days_overdue": 73,
+    "industry_category": "Pharma Distribution",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-01",
+          "amount": 5000
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 90
+    }
+  },
+  {
+    "id": "INV-0007",
+    "merchant_id": "MER-006",
+    "debtor_id": "DEB-0007",
+    "debtor_name": "Rohan Logistics",
+    "amount": 36100,
+    "currency": "INR",
+    "issued_date": "2026-07-01",
+    "due_date": "2026-07-31",
+    "payment_terms_days": 30,
+    "days_overdue": 31,
+    "industry_category": "Logistics",
+    "ground_truth_behavior": "negotiates_keeps_promise",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-18",
+          "promised_amount": 36100,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-17",
+          "amount": 36100
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 30
+    }
+  },
+  {
+    "id": "INV-0008",
+    "merchant_id": "MER-007",
+    "debtor_id": "DEB-0008",
+    "debtor_name": "Saanvi Foods",
+    "amount": 69900,
+    "currency": "INR",
+    "issued_date": "2026-04-08",
+    "due_date": "2026-07-07",
+    "payment_terms_days": 90,
+    "days_overdue": 55,
+    "industry_category": "Pharma Distribution",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-01",
+          "amount": 69900
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 90
+    }
+  },
+  {
+    "id": "INV-0009",
+    "merchant_id": "MER-005",
+    "debtor_id": "DEB-0009",
+    "debtor_name": "Rohan Enterprises",
+    "amount": 6800,
+    "currency": "INR",
+    "issued_date": "2026-04-26",
+    "due_date": "2026-06-25",
+    "payment_terms_days": 60,
+    "days_overdue": 67,
+    "industry_category": "IT Services",
+    "ground_truth_behavior": "negotiates_keeps_promise",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-05",
+          "promised_amount": 6800,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-03",
+          "amount": 6800
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0010",
+    "merchant_id": "MER-003",
+    "debtor_id": "DEB-0010",
+    "debtor_name": "Kolkata Electricals",
+    "amount": 17700,
+    "currency": "INR",
+    "issued_date": "2026-04-21",
+    "due_date": "2026-07-20",
+    "payment_terms_days": 90,
+    "days_overdue": 42,
+    "industry_category": "Textiles & Garments",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-01",
+          "amount": 17700
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 90
+    }
+  },
+  {
+    "id": "INV-0011",
+    "merchant_id": "MER-002",
+    "debtor_id": "DEB-0011",
+    "debtor_name": "Jaipur Exports",
+    "amount": 138100,
+    "currency": "INR",
+    "issued_date": "2026-07-11",
+    "due_date": "2026-08-10",
+    "payment_terms_days": 30,
+    "days_overdue": 21,
+    "industry_category": "Electronics Trading",
+    "ground_truth_behavior": "breaks_promise_then_pays",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-05",
+          "promised_amount": 138100,
+          "expected_status": "broken"
+        },
+        {
+          "sequence": 2,
+          "promised_date": "2026-09-17",
+          "promised_amount": 138100,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-18",
+          "amount": 138100
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 30
+    }
+  },
+  {
+    "id": "INV-0012",
+    "merchant_id": "MER-008",
+    "debtor_id": "DEB-0012",
+    "debtor_name": "Indore Logistics",
+    "amount": 43900,
+    "currency": "INR",
+    "issued_date": "2026-04-12",
+    "due_date": "2026-07-11",
+    "payment_terms_days": 90,
+    "days_overdue": 51,
+    "industry_category": "Pharma Distribution",
+    "ground_truth_behavior": "ghost_or_opt_out",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [],
+      "variant": "ghost",
+      "payment_terms_days": 90
+    }
+  },
+  {
+    "id": "INV-0013",
+    "merchant_id": "MER-002",
+    "debtor_id": "DEB-0013",
+    "debtor_name": "Vivaan Distributors",
+    "amount": 21100,
+    "currency": "INR",
+    "issued_date": "2026-03-10",
+    "due_date": "2026-06-08",
+    "payment_terms_days": 90,
+    "days_overdue": 84,
+    "industry_category": "Auto Components",
+    "ground_truth_behavior": "breaks_promise_then_pays",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-04",
+          "promised_amount": 21100,
+          "expected_status": "broken"
+        },
+        {
+          "sequence": 2,
+          "promised_date": "2026-09-12",
+          "promised_amount": 21100,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-12",
+          "amount": 21100
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 90
+    }
+  },
+  {
+    "id": "INV-0014",
+    "merchant_id": "MER-004",
+    "debtor_id": "DEB-0014",
+    "debtor_name": "Surat Logistics",
+    "amount": 21900,
+    "currency": "INR",
+    "issued_date": "2026-03-29",
+    "due_date": "2026-06-27",
+    "payment_terms_days": 90,
+    "days_overdue": 65,
+    "industry_category": "Facility Management",
+    "ground_truth_behavior": "breaks_promise_then_pays",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-04",
+          "promised_amount": 21900,
+          "expected_status": "broken"
+        },
+        {
+          "sequence": 2,
+          "promised_date": "2026-09-11",
+          "promised_amount": 21900,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-11",
+          "amount": 21900
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 90
+    }
+  },
+  {
+    "id": "INV-0015",
+    "merchant_id": "MER-007",
+    "debtor_id": "DEB-0015",
+    "debtor_name": "Neha Exports",
+    "amount": 30900,
+    "currency": "INR",
+    "issued_date": "2026-06-27",
+    "due_date": "2026-07-27",
+    "payment_terms_days": 30,
+    "days_overdue": 35,
+    "industry_category": "Packaging",
+    "ground_truth_behavior": "negotiates_keeps_promise",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-07",
+          "promised_amount": 30900,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-05",
+          "amount": 30900
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 30
+    }
+  },
+  {
+    "id": "INV-0016",
+    "merchant_id": "MER-001",
+    "debtor_id": "DEB-0016",
+    "debtor_name": "Nikhil Foods",
+    "amount": 34300,
+    "currency": "INR",
+    "issued_date": "2026-05-20",
+    "due_date": "2026-08-18",
+    "payment_terms_days": 90,
+    "days_overdue": 13,
+    "industry_category": "Construction Materials",
+    "ground_truth_behavior": "breaks_promise_then_pays",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-04",
+          "promised_amount": 34300,
+          "expected_status": "broken"
+        },
+        {
+          "sequence": 2,
+          "promised_date": "2026-09-12",
+          "promised_amount": 34300,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-11",
+          "amount": 34300
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 90
+    }
+  },
+  {
+    "id": "INV-0017",
+    "merchant_id": "MER-002",
+    "debtor_id": "DEB-0017",
+    "debtor_name": "Ishaan Foods",
+    "amount": 13800,
+    "currency": "INR",
+    "issued_date": "2026-04-29",
+    "due_date": "2026-05-29",
+    "payment_terms_days": 30,
+    "days_overdue": 94,
+    "industry_category": "Electronics Trading",
+    "ground_truth_behavior": "breaks_promise_then_pays",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-04",
+          "promised_amount": 13800,
+          "expected_status": "broken"
+        },
+        {
+          "sequence": 2,
+          "promised_date": "2026-09-13",
+          "promised_amount": 13800,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-12",
+          "amount": 13800
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 30
+    }
+  },
+  {
+    "id": "INV-0018",
+    "merchant_id": "MER-005",
+    "debtor_id": "DEB-0018",
+    "debtor_name": "Kabir Traders",
+    "amount": 60600,
+    "currency": "INR",
+    "issued_date": "2026-05-21",
+    "due_date": "2026-07-20",
+    "payment_terms_days": 60,
+    "days_overdue": 42,
+    "industry_category": "Pharma Distribution",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-02",
+          "amount": 60600
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0019",
+    "merchant_id": "MER-006",
+    "debtor_id": "DEB-0019",
+    "debtor_name": "Surat Exports",
+    "amount": 18300,
+    "currency": "INR",
+    "issued_date": "2026-04-15",
+    "due_date": "2026-06-14",
+    "payment_terms_days": 60,
+    "days_overdue": 78,
+    "industry_category": "Logistics",
+    "ground_truth_behavior": "ghost_or_opt_out",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [],
+      "variant": "opt_out",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0020",
+    "merchant_id": "MER-007",
+    "debtor_id": "DEB-0020",
+    "debtor_name": "Delhi Agencies",
+    "amount": 22100,
+    "currency": "INR",
+    "issued_date": "2026-07-10",
+    "due_date": "2026-08-09",
+    "payment_terms_days": 30,
+    "days_overdue": 22,
+    "industry_category": "Packaging",
+    "ground_truth_behavior": "breaks_promise_then_pays",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-05",
+          "promised_amount": 22100,
+          "expected_status": "broken"
+        },
+        {
+          "sequence": 2,
+          "promised_date": "2026-09-10",
+          "promised_amount": 22100,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-09",
+          "amount": 22100
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 30
+    }
+  },
+  {
+    "id": "INV-0021",
+    "merchant_id": "MER-010",
+    "debtor_id": "DEB-0021",
+    "debtor_name": "Vivaan Industries",
+    "amount": 33500,
+    "currency": "INR",
+    "issued_date": "2026-06-07",
+    "due_date": "2026-08-06",
+    "payment_terms_days": 60,
+    "days_overdue": 25,
+    "industry_category": "IT Services",
+    "ground_truth_behavior": "negotiates_keeps_promise",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-12",
+          "promised_amount": 33500,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-12",
+          "amount": 33500
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0022",
+    "merchant_id": "MER-004",
+    "debtor_id": "DEB-0022",
+    "debtor_name": "Ishaan Electricals",
+    "amount": 10400,
+    "currency": "INR",
+    "issued_date": "2026-04-03",
+    "due_date": "2026-07-02",
+    "payment_terms_days": 90,
+    "days_overdue": 60,
+    "industry_category": "IT Services",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-02",
+          "amount": 10400
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 90
+    }
+  },
+  {
+    "id": "INV-0023",
+    "merchant_id": "MER-006",
+    "debtor_id": "DEB-0023",
+    "debtor_name": "Meera Enterprises",
+    "amount": 10100,
+    "currency": "INR",
+    "issued_date": "2026-05-11",
+    "due_date": "2026-08-09",
+    "payment_terms_days": 90,
+    "days_overdue": 22,
+    "industry_category": "Auto Components",
+    "ground_truth_behavior": "breaks_promise_then_pays",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-06",
+          "promised_amount": 10100,
+          "expected_status": "broken"
+        },
+        {
+          "sequence": 2,
+          "promised_date": "2026-09-15",
+          "promised_amount": 10100,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-15",
+          "amount": 10100
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 90
+    }
+  },
+  {
+    "id": "INV-0024",
+    "merchant_id": "MER-005",
+    "debtor_id": "DEB-0024",
+    "debtor_name": "Delhi Distributors",
+    "amount": 26200,
+    "currency": "INR",
+    "issued_date": "2026-04-19",
+    "due_date": "2026-07-18",
+    "payment_terms_days": 90,
+    "days_overdue": 44,
+    "industry_category": "Food & Beverages",
+    "ground_truth_behavior": "ghost_or_opt_out",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [],
+      "variant": "ghost",
+      "payment_terms_days": 90
+    }
+  },
+  {
+    "id": "INV-0025",
+    "merchant_id": "MER-008",
+    "debtor_id": "DEB-0025",
+    "debtor_name": "Neha Packaging",
+    "amount": 123200,
+    "currency": "INR",
+    "issued_date": "2026-04-28",
+    "due_date": "2026-06-27",
+    "payment_terms_days": 60,
+    "days_overdue": 65,
+    "industry_category": "Packaging",
+    "ground_truth_behavior": "negotiates_keeps_promise",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-11",
+          "promised_amount": 123200,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-11",
+          "amount": 123200
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0026",
+    "merchant_id": "MER-006",
+    "debtor_id": "DEB-0026",
+    "debtor_name": "Meera Distributors",
+    "amount": 5200,
+    "currency": "INR",
+    "issued_date": "2026-06-12",
+    "due_date": "2026-08-11",
+    "payment_terms_days": 60,
+    "days_overdue": 20,
+    "industry_category": "Food & Beverages",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-02",
+          "amount": 5200
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0027",
+    "merchant_id": "MER-006",
+    "debtor_id": "DEB-0027",
+    "debtor_name": "Neha Packaging",
+    "amount": 21100,
+    "currency": "INR",
+    "issued_date": "2026-05-03",
+    "due_date": "2026-06-02",
+    "payment_terms_days": 30,
+    "days_overdue": 90,
+    "industry_category": "Pharma Distribution",
+    "ground_truth_behavior": "negotiates_keeps_promise",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-09",
+          "promised_amount": 21100,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-08",
+          "amount": 21100
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 30
+    }
+  },
+  {
+    "id": "INV-0028",
+    "merchant_id": "MER-001",
+    "debtor_id": "DEB-0028",
+    "debtor_name": "Aarav Industries",
+    "amount": 93500,
+    "currency": "INR",
+    "issued_date": "2026-04-29",
+    "due_date": "2026-05-29",
+    "payment_terms_days": 30,
+    "days_overdue": 94,
+    "industry_category": "Facility Management",
+    "ground_truth_behavior": "negotiates_keeps_promise",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-16",
+          "promised_amount": 93500,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-16",
+          "amount": 93500
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 30
+    }
+  },
+  {
+    "id": "INV-0029",
+    "merchant_id": "MER-007",
+    "debtor_id": "DEB-0029",
+    "debtor_name": "Delhi Enterprises",
+    "amount": 92500,
+    "currency": "INR",
+    "issued_date": "2026-04-27",
+    "due_date": "2026-07-26",
+    "payment_terms_days": 90,
+    "days_overdue": 36,
+    "industry_category": "Logistics",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-02",
+          "amount": 92500
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 90
+    }
+  },
+  {
+    "id": "INV-0030",
+    "merchant_id": "MER-008",
+    "debtor_id": "DEB-0030",
+    "debtor_name": "Kabir Traders",
+    "amount": 68100,
+    "currency": "INR",
+    "issued_date": "2026-05-30",
+    "due_date": "2026-07-29",
+    "payment_terms_days": 60,
+    "days_overdue": 33,
+    "industry_category": "Construction Materials",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-01",
+          "amount": 68100
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0031",
+    "merchant_id": "MER-001",
+    "debtor_id": "DEB-0031",
+    "debtor_name": "Kochi Exports",
+    "amount": 17000,
+    "currency": "INR",
+    "issued_date": "2026-04-30",
+    "due_date": "2026-06-29",
+    "payment_terms_days": 60,
+    "days_overdue": 63,
+    "industry_category": "Auto Components",
+    "ground_truth_behavior": "negotiates_keeps_promise",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-08",
+          "promised_amount": 17000,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-08",
+          "amount": 17000
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0032",
+    "merchant_id": "MER-005",
+    "debtor_id": "DEB-0032",
+    "debtor_name": "Rohan Industries",
+    "amount": 54100,
+    "currency": "INR",
+    "issued_date": "2026-04-01",
+    "due_date": "2026-06-30",
+    "payment_terms_days": 90,
+    "days_overdue": 62,
+    "industry_category": "Electronics Trading",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-01",
+          "amount": 54100
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 90
+    }
+  },
+  {
+    "id": "INV-0033",
+    "merchant_id": "MER-003",
+    "debtor_id": "DEB-0033",
+    "debtor_name": "Rohan Solutions",
+    "amount": 27400,
+    "currency": "INR",
+    "issued_date": "2026-06-13",
+    "due_date": "2026-08-12",
+    "payment_terms_days": 60,
+    "days_overdue": 19,
+    "industry_category": "Packaging",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-01",
+          "amount": 27400
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0034",
+    "merchant_id": "MER-004",
+    "debtor_id": "DEB-0034",
+    "debtor_name": "Aarav Exports",
+    "amount": 87300,
+    "currency": "INR",
+    "issued_date": "2026-03-02",
+    "due_date": "2026-05-31",
+    "payment_terms_days": 90,
+    "days_overdue": 92,
+    "industry_category": "Textiles & Garments",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-02",
+          "amount": 87300
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 90
+    }
+  },
+  {
+    "id": "INV-0035",
+    "merchant_id": "MER-002",
+    "debtor_id": "DEB-0035",
+    "debtor_name": "Saanvi Foods",
+    "amount": 46500,
+    "currency": "INR",
+    "issued_date": "2026-06-15",
+    "due_date": "2026-07-15",
+    "payment_terms_days": 30,
+    "days_overdue": 47,
+    "industry_category": "Pharma Distribution",
+    "ground_truth_behavior": "negotiates_keeps_promise",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-10",
+          "promised_amount": 46500,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-09",
+          "amount": 46500
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 30
+    }
+  },
+  {
+    "id": "INV-0036",
+    "merchant_id": "MER-009",
+    "debtor_id": "DEB-0036",
+    "debtor_name": "Saanvi Foods",
+    "amount": 5000,
+    "currency": "INR",
+    "issued_date": "2026-06-17",
+    "due_date": "2026-08-16",
+    "payment_terms_days": 60,
+    "days_overdue": 15,
+    "industry_category": "Textiles & Garments",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-02",
+          "amount": 5000
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0037",
+    "merchant_id": "MER-005",
+    "debtor_id": "DEB-0037",
+    "debtor_name": "Nikhil Enterprises",
+    "amount": 10600,
+    "currency": "INR",
+    "issued_date": "2026-06-01",
+    "due_date": "2026-07-31",
+    "payment_terms_days": 60,
+    "days_overdue": 31,
+    "industry_category": "Industrial Supplies",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-01",
+          "amount": 10600
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0038",
+    "merchant_id": "MER-008",
+    "debtor_id": "DEB-0038",
+    "debtor_name": "Aditi Exports",
+    "amount": 24900,
+    "currency": "INR",
+    "issued_date": "2026-04-19",
+    "due_date": "2026-07-18",
+    "payment_terms_days": 90,
+    "days_overdue": 44,
+    "industry_category": "Textiles & Garments",
+    "ground_truth_behavior": "negotiates_keeps_promise",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-16",
+          "promised_amount": 24900,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-14",
+          "amount": 24900
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 90
+    }
+  },
+  {
+    "id": "INV-0039",
+    "merchant_id": "MER-007",
+    "debtor_id": "DEB-0039",
+    "debtor_name": "Nagpur Agencies",
+    "amount": 23700,
+    "currency": "INR",
+    "issued_date": "2026-07-24",
+    "due_date": "2026-08-23",
+    "payment_terms_days": 30,
+    "days_overdue": 8,
+    "industry_category": "Logistics",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-01",
+          "amount": 23700
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 30
+    }
+  },
+  {
+    "id": "INV-0040",
+    "merchant_id": "MER-004",
+    "debtor_id": "DEB-0040",
+    "debtor_name": "Rohan Exports",
+    "amount": 6500,
+    "currency": "INR",
+    "issued_date": "2026-04-09",
+    "due_date": "2026-06-08",
+    "payment_terms_days": 60,
+    "days_overdue": 84,
+    "industry_category": "Facility Management",
+    "ground_truth_behavior": "breaks_promise_then_pays",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-08",
+          "promised_amount": 6500,
+          "expected_status": "broken"
+        },
+        {
+          "sequence": 2,
+          "promised_date": "2026-09-18",
+          "promised_amount": 6500,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-18",
+          "amount": 6500
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0041",
+    "merchant_id": "MER-001",
+    "debtor_id": "DEB-0041",
+    "debtor_name": "Surat Enterprises",
+    "amount": 186100,
+    "currency": "INR",
+    "issued_date": "2026-06-07",
+    "due_date": "2026-07-07",
+    "payment_terms_days": 30,
+    "days_overdue": 55,
+    "industry_category": "Printing & Signage",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-01",
+          "amount": 186100
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 30
+    }
+  },
+  {
+    "id": "INV-0042",
+    "merchant_id": "MER-001",
+    "debtor_id": "DEB-0042",
+    "debtor_name": "Mumbai Industries",
+    "amount": 46100,
+    "currency": "INR",
+    "issued_date": "2026-04-18",
+    "due_date": "2026-07-17",
+    "payment_terms_days": 90,
+    "days_overdue": 45,
+    "industry_category": "Food & Beverages",
+    "ground_truth_behavior": "ghost_or_opt_out",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [],
+      "variant": "ghost",
+      "payment_terms_days": 90
+    }
+  },
+  {
+    "id": "INV-0043",
+    "merchant_id": "MER-003",
+    "debtor_id": "DEB-0043",
+    "debtor_name": "Rohan Logistics",
+    "amount": 69100,
+    "currency": "INR",
+    "issued_date": "2026-05-09",
+    "due_date": "2026-06-08",
+    "payment_terms_days": 30,
+    "days_overdue": 84,
+    "industry_category": "Printing & Signage",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-02",
+          "amount": 69100
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 30
+    }
+  },
+  {
+    "id": "INV-0044",
+    "merchant_id": "MER-003",
+    "debtor_id": "DEB-0044",
+    "debtor_name": "Surat Enterprises",
+    "amount": 9800,
+    "currency": "INR",
+    "issued_date": "2026-05-01",
+    "due_date": "2026-06-30",
+    "payment_terms_days": 60,
+    "days_overdue": 62,
+    "industry_category": "Auto Components",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-08-31",
+          "amount": 9800
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0045",
+    "merchant_id": "MER-008",
+    "debtor_id": "DEB-0045",
+    "debtor_name": "Lucknow Fabrics",
+    "amount": 17500,
+    "currency": "INR",
+    "issued_date": "2026-04-19",
+    "due_date": "2026-06-18",
+    "payment_terms_days": 60,
+    "days_overdue": 74,
+    "industry_category": "Packaging",
+    "ground_truth_behavior": "breaks_promise_then_pays",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-07",
+          "promised_amount": 17500,
+          "expected_status": "broken"
+        },
+        {
+          "sequence": 2,
+          "promised_date": "2026-09-19",
+          "promised_amount": 17500,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-18",
+          "amount": 17500
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0046",
+    "merchant_id": "MER-001",
+    "debtor_id": "DEB-0046",
+    "debtor_name": "Vadodara Distributors",
+    "amount": 5000,
+    "currency": "INR",
+    "issued_date": "2026-03-27",
+    "due_date": "2026-06-25",
+    "payment_terms_days": 90,
+    "days_overdue": 67,
+    "industry_category": "Textiles & Garments",
+    "ground_truth_behavior": "negotiates_keeps_promise",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-09",
+          "promised_amount": 5000,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-09",
+          "amount": 5000
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 90
+    }
+  },
+  {
+    "id": "INV-0047",
+    "merchant_id": "MER-002",
+    "debtor_id": "DEB-0047",
+    "debtor_name": "Neha Distributors",
+    "amount": 90300,
+    "currency": "INR",
+    "issued_date": "2026-05-16",
+    "due_date": "2026-08-14",
+    "payment_terms_days": 90,
+    "days_overdue": 17,
+    "industry_category": "Food & Beverages",
+    "ground_truth_behavior": "negotiates_keeps_promise",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-16",
+          "promised_amount": 90300,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-15",
+          "amount": 90300
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 90
+    }
+  },
+  {
+    "id": "INV-0048",
+    "merchant_id": "MER-010",
+    "debtor_id": "DEB-0048",
+    "debtor_name": "Mumbai Exports",
+    "amount": 56800,
+    "currency": "INR",
+    "issued_date": "2026-05-25",
+    "due_date": "2026-08-23",
+    "payment_terms_days": 90,
+    "days_overdue": 8,
+    "industry_category": "Food & Beverages",
+    "ground_truth_behavior": "negotiates_keeps_promise",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-10",
+          "promised_amount": 56800,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-09",
+          "amount": 56800
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 90
+    }
+  },
+  {
+    "id": "INV-0049",
+    "merchant_id": "MER-001",
+    "debtor_id": "DEB-0049",
+    "debtor_name": "Surat Industries",
+    "amount": 32200,
+    "currency": "INR",
+    "issued_date": "2026-04-20",
+    "due_date": "2026-06-19",
+    "payment_terms_days": 60,
+    "days_overdue": 73,
+    "industry_category": "Electronics Trading",
+    "ground_truth_behavior": "breaks_promise_then_pays",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-04",
+          "promised_amount": 32200,
+          "expected_status": "broken"
+        },
+        {
+          "sequence": 2,
+          "promised_date": "2026-09-09",
+          "promised_amount": 32200,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-08",
+          "amount": 32200
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0050",
+    "merchant_id": "MER-007",
+    "debtor_id": "DEB-0050",
+    "debtor_name": "Delhi Traders",
+    "amount": 5000,
+    "currency": "INR",
+    "issued_date": "2026-04-22",
+    "due_date": "2026-07-21",
+    "payment_terms_days": 90,
+    "days_overdue": 41,
+    "industry_category": "Food & Beverages",
+    "ground_truth_behavior": "breaks_promise_then_pays",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-06",
+          "promised_amount": 5000,
+          "expected_status": "broken"
+        },
+        {
+          "sequence": 2,
+          "promised_date": "2026-09-11",
+          "promised_amount": 5000,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-11",
+          "amount": 5000
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 90
+    }
+  },
+  {
+    "id": "INV-0051",
+    "merchant_id": "MER-008",
+    "debtor_id": "DEB-0051",
+    "debtor_name": "Neha Distributors",
+    "amount": 54100,
+    "currency": "INR",
+    "issued_date": "2026-03-29",
+    "due_date": "2026-05-28",
+    "payment_terms_days": 60,
+    "days_overdue": 95,
+    "industry_category": "IT Services",
+    "ground_truth_behavior": "negotiates_keeps_promise",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-10",
+          "promised_amount": 54100,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-09",
+          "amount": 54100
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0052",
+    "merchant_id": "MER-003",
+    "debtor_id": "DEB-0052",
+    "debtor_name": "Rohan Foods",
+    "amount": 5000,
+    "currency": "INR",
+    "issued_date": "2026-05-12",
+    "due_date": "2026-07-11",
+    "payment_terms_days": 60,
+    "days_overdue": 51,
+    "industry_category": "Pharma Distribution",
+    "ground_truth_behavior": "negotiates_keeps_promise",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-12",
+          "promised_amount": 5000,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-10",
+          "amount": 5000
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0053",
+    "merchant_id": "MER-003",
+    "debtor_id": "DEB-0053",
+    "debtor_name": "Meera Electricals",
+    "amount": 35200,
+    "currency": "INR",
+    "issued_date": "2026-05-17",
+    "due_date": "2026-08-15",
+    "payment_terms_days": 90,
+    "days_overdue": 16,
+    "industry_category": "Industrial Supplies",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-01",
+          "amount": 35200
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 90
+    }
+  },
+  {
+    "id": "INV-0054",
+    "merchant_id": "MER-004",
+    "debtor_id": "DEB-0054",
+    "debtor_name": "Surat Packaging",
+    "amount": 26500,
+    "currency": "INR",
+    "issued_date": "2026-04-21",
+    "due_date": "2026-07-20",
+    "payment_terms_days": 90,
+    "days_overdue": 42,
+    "industry_category": "Logistics",
+    "ground_truth_behavior": "breaks_promise_then_pays",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-04",
+          "promised_amount": 26500,
+          "expected_status": "broken"
+        },
+        {
+          "sequence": 2,
+          "promised_date": "2026-09-15",
+          "promised_amount": 26500,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-14",
+          "amount": 26500
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 90
+    }
+  },
+  {
+    "id": "INV-0055",
+    "merchant_id": "MER-008",
+    "debtor_id": "DEB-0055",
+    "debtor_name": "Nagpur Agencies",
+    "amount": 75600,
+    "currency": "INR",
+    "issued_date": "2026-04-23",
+    "due_date": "2026-06-22",
+    "payment_terms_days": 60,
+    "days_overdue": 70,
+    "industry_category": "IT Services",
+    "ground_truth_behavior": "negotiates_keeps_promise",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-06",
+          "promised_amount": 75600,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-05",
+          "amount": 75600
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0056",
+    "merchant_id": "MER-008",
+    "debtor_id": "DEB-0056",
+    "debtor_name": "Nagpur Electricals",
+    "amount": 38500,
+    "currency": "INR",
+    "issued_date": "2026-04-03",
+    "due_date": "2026-06-02",
+    "payment_terms_days": 60,
+    "days_overdue": 90,
+    "industry_category": "Facility Management",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-01",
+          "amount": 38500
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0057",
+    "merchant_id": "MER-001",
+    "debtor_id": "DEB-0057",
+    "debtor_name": "Anaya Agencies",
+    "amount": 7600,
+    "currency": "INR",
+    "issued_date": "2026-05-01",
+    "due_date": "2026-06-30",
+    "payment_terms_days": 60,
+    "days_overdue": 62,
+    "industry_category": "Food & Beverages",
+    "ground_truth_behavior": "negotiates_keeps_promise",
+    "_simulation_truth": {
+      "promises": [
+        {
+          "sequence": 1,
+          "promised_date": "2026-09-18",
+          "promised_amount": 7600,
+          "expected_status": "kept"
+        }
+      ],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-16",
+          "amount": 7600
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  },
+  {
+    "id": "INV-0058",
+    "merchant_id": "MER-005",
+    "debtor_id": "DEB-0058",
+    "debtor_name": "Vadodara Enterprises",
+    "amount": 41500,
+    "currency": "INR",
+    "issued_date": "2026-05-04",
+    "due_date": "2026-06-03",
+    "payment_terms_days": 30,
+    "days_overdue": 89,
+    "industry_category": "Printing & Signage",
+    "ground_truth_behavior": "ghost_or_opt_out",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [],
+      "variant": "ghost",
+      "payment_terms_days": 30
+    }
+  },
+  {
+    "id": "INV-0059",
+    "merchant_id": "MER-006",
+    "debtor_id": "DEB-0059",
+    "debtor_name": "Jaipur Exports",
+    "amount": 74800,
+    "currency": "INR",
+    "issued_date": "2026-03-01",
+    "due_date": "2026-05-30",
+    "payment_terms_days": 90,
+    "days_overdue": 93,
+    "industry_category": "Food & Beverages",
+    "ground_truth_behavior": "ghost_or_opt_out",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [],
+      "variant": "opt_out",
+      "payment_terms_days": 90
+    }
+  },
+  {
+    "id": "INV-0060",
+    "merchant_id": "MER-003",
+    "debtor_id": "DEB-0060",
+    "debtor_name": "Mumbai Industries",
+    "amount": 8300,
+    "currency": "INR",
+    "issued_date": "2026-05-27",
+    "due_date": "2026-07-26",
+    "payment_terms_days": 60,
+    "days_overdue": 36,
+    "industry_category": "Logistics",
+    "ground_truth_behavior": "quick_payer",
+    "_simulation_truth": {
+      "promises": [],
+      "payment_events": [
+        {
+          "paid_at": "2026-09-01",
+          "amount": 8300
+        }
+      ],
+      "variant": "ghost",
+      "payment_terms_days": 60
+    }
+  }
+]
