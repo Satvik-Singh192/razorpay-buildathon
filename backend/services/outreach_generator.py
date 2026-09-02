@@ -14,8 +14,8 @@ from backend.models import ActionType, RiskTier
 
 LOGGER = logging.getLogger(__name__)
 
-OPENAI_CHAT_COMPLETIONS_URL: Final = "https://api.openai.com/v1/chat/completions"
-DEFAULT_MODEL: Final = "gpt-4o-mini"
+GEMINI_CHAT_COMPLETIONS_URL: Final = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions"
+DEFAULT_MODEL: Final = "gemini-1.5-flash"
 MAX_WORDS: Final = 120
 
 
@@ -32,7 +32,7 @@ def generate_outreach(
     context = _build_context(prior_actions or [], prior_replies or [])
     payload = _build_payload(invoice, debtor, action, context)
 
-    api_key = os.getenv("OPENAI_API_KEY")
+    api_key = os.getenv("GEMINI_API_KEY")
     if api_key:
         try:
             response = _post_openai_chat_completions(api_key, payload)
@@ -78,7 +78,7 @@ def _build_payload(invoice: Any, debtor: Any, action: str, context: str) -> dict
         "prior_context": context or "No prior contact context is available.",
     }
     return {
-        "model": os.getenv("OPENAI_OUTREACH_MODEL", DEFAULT_MODEL),
+        "model": os.getenv("GEMINI_OUTREACH_MODEL", DEFAULT_MODEL),
         "temperature": 0.7,
         "max_tokens": 180,
         "messages": [
@@ -137,7 +137,7 @@ def _fallback_message(invoice: Any, debtor: Any, action: str, context: str) -> s
 
 def _post_openai_chat_completions(api_key: str, payload: dict[str, Any]) -> dict[str, Any]:
     request = Request(
-        OPENAI_CHAT_COMPLETIONS_URL,
+        GEMINI_CHAT_COMPLETIONS_URL,
         data=json.dumps(payload).encode("utf-8"),
         headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
         method="POST",

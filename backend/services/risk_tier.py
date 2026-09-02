@@ -17,8 +17,8 @@ from backend.models import AuditActor, AuditLog, Debtor, Invoice, RiskTier
 
 LOGGER = logging.getLogger(__name__)
 
-OPENAI_CHAT_COMPLETIONS_URL: Final = "https://api.openai.com/v1/chat/completions"
-DEFAULT_MODEL: Final = "gpt-4o-mini"
+GEMINI_CHAT_COMPLETIONS_URL: Final = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions"
+DEFAULT_MODEL: Final = "gemini-1.5-flash"
 
 
 @dataclass(frozen=True)
@@ -163,14 +163,14 @@ def tier_invoice(
 
 
 def _analyze_reply_sentiment(base_score: float, latest_reply_text: str) -> SentimentAnalysis:
-    key = os.getenv("OPENAI_API_KEY")
+    key = os.getenv("GEMINI_API_KEY")
     if not key:
         reason = "OpenAI API key missing, using base score without sentiment adjustment"
         LOGGER.info(reason)
         return SentimentAnalysis("NEUTRAL", 1.0, _clamp(base_score), reason)
 
     payload = {
-        "model": os.getenv("OPENAI_RISK_TIER_MODEL", DEFAULT_MODEL),
+        "model": os.getenv("GEMINI_RISK_TIER_MODEL", DEFAULT_MODEL),
         "temperature": 0,
         "response_format": {
             "type": "json_schema",
@@ -254,7 +254,7 @@ def _analyze_reply_sentiment(base_score: float, latest_reply_text: str) -> Senti
 
 def _post_openai_chat_completions(api_key: str, payload: dict[str, Any]) -> dict[str, Any]:
     request = Request(
-        OPENAI_CHAT_COMPLETIONS_URL,
+        GEMINI_CHAT_COMPLETIONS_URL,
         data=json.dumps(payload).encode("utf-8"),
         headers={
             "Authorization": f"Bearer {api_key}",

@@ -14,8 +14,8 @@ from backend.models import Invoice
 
 LOGGER = logging.getLogger(__name__)
 
-OPENAI_CHAT_COMPLETIONS_URL: Final = "https://api.openai.com/v1/chat/completions"
-DEFAULT_MODEL: Final = "gpt-4o-mini"
+GEMINI_CHAT_COMPLETIONS_URL: Final = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions"
+DEFAULT_MODEL: Final = "gemini-1.5-flash"
 AUTO_APPLY_CONFIDENCE_THRESHOLD: Final = 0.6
 
 _OPT_OUT_PHRASES: tuple[str, ...] = (
@@ -75,7 +75,7 @@ def extract_promise(reply_text: str, invoice: Invoice) -> PromiseExtraction:
             ),
         )
 
-    key = os.getenv("OPENAI_API_KEY")
+    key = os.getenv("GEMINI_API_KEY")
     if not key:
         reason = "OpenAI API key missing, routing reply to human-review queue"
         LOGGER.info(reason)
@@ -88,7 +88,7 @@ def extract_promise(reply_text: str, invoice: Invoice) -> PromiseExtraction:
         )
 
     payload = {
-        "model": os.getenv("OPENAI_PROMISE_EXTRACTOR_MODEL", DEFAULT_MODEL),
+        "model": os.getenv("GEMINI_PROMISE_EXTRACTOR_MODEL", DEFAULT_MODEL),
         "temperature": 0,
         "response_format": {
             "type": "json_schema",
@@ -336,7 +336,7 @@ def _format_date(value: Any) -> str | None:
 
 def _post_openai_chat_completions(api_key: str, payload: dict[str, Any]) -> dict[str, Any]:
     request = Request(
-        OPENAI_CHAT_COMPLETIONS_URL,
+        GEMINI_CHAT_COMPLETIONS_URL,
         data=json.dumps(payload).encode("utf-8"),
         headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
         method="POST",

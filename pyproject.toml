@@ -8,4 +8,7 @@ dependencies = [
     "faker>=40.37.0",
     "pytest>=9.1.1",
     "sqlalchemy>=2.0.0",
+    "fastapi>=0.100.0",
+    "uvicorn>=0.22.0",
+    "pydantic>=2.0.0",
 ]
