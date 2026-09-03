@@ -5,6 +5,10 @@ from typing import List, Optional
 from datetime import date, datetime
 from sqlalchemy.orm import Session
 from sqlalchemy import func
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from backend.db import get_session, log_and_commit
 from backend.models import Invoice, Action, Reply, Promise, AuditLog, InvoiceState, ActionType, PromiseStatus, AuditActor, RiskTier
@@ -75,6 +79,7 @@ class InvoiceDetail(InvoiceSummary):
 class AuditLogModel(BaseModel):
     model_config = ConfigDict(from_attributes=True)
     id: int
+    invoice_id: Optional[str] = None
     actor: AuditActor
     event: str
     reason: str
@@ -87,6 +92,7 @@ class MetricsResponse(BaseModel):
     count_by_state: dict
     count_policy_blocks: int
     count_human_pending: int
+    current_date: date
 
 class BatchSummary(BaseModel):
     date: date
@@ -181,7 +187,8 @@ def get_metrics(session: Session = Depends(get_db)):
         promise_kept_rate_pct=promise_kept_rate_pct,
         count_by_state=count_by_state,
         count_policy_blocks=count_policy_blocks,
-        count_human_pending=count_human_pending
+        count_human_pending=count_human_pending,
+        current_date=app_state.current_date
     )
 
 @app.post("/invoices/{id}/approve-escalation")

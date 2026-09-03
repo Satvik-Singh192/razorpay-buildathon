@@ -22,7 +22,9 @@ class PolicyDecision:
     requires_human_approval: bool = False
 
 
-def evaluate_action(invoice: Any, proposed_action_type: str | ActionType, session: Session) -> PolicyDecision:
+def evaluate_action(invoice: Any, proposed_action_type: str | ActionType, session: Session, current_date: datetime | None = None) -> PolicyDecision:
+    if current_date is None:
+        current_date = datetime.now()
     action_type = _normalize_action_type(proposed_action_type)
     requires_human_approval = False
 
@@ -31,7 +33,7 @@ def evaluate_action(invoice: Any, proposed_action_type: str | ActionType, sessio
             allowed=False,
             reason="debtor has opted out, no further contact permitted",
         )
-    elif _contacted_within_frequency_cap(invoice.last_contacted_at):
+    elif _contacted_within_frequency_cap(invoice.last_contacted_at, current_date):
         decision = PolicyDecision(
             allowed=False,
             reason="contact frequency cap: must wait 3 days between contacts",
@@ -61,7 +63,9 @@ def evaluate_action(invoice: Any, proposed_action_type: str | ActionType, sessio
     return decision
 
 
-def determine_next_rung(invoice: Any, promise_history: Iterable[Any]) -> ActionType:
+def determine_next_rung(invoice: Any, promise_history: Iterable[Any], current_date: datetime | None = None) -> ActionType:
+    if current_date is None:
+        current_date = datetime.now()
     broken_count = _broken_promise_count(promise_history)
 
     if invoice.state == InvoiceState.PROMISED or str(invoice.state) == InvoiceState.PROMISED.value:
@@ -79,7 +83,7 @@ def determine_next_rung(invoice: Any, promise_history: Iterable[Any]) -> ActionT
         return ActionType.REMINDER
 
     if _enum_value(invoice.state) == InvoiceState.CONTACTED.value and _has_no_reply(invoice):
-        days_since_contact = _days_since(invoice.last_contacted_at)
+        days_since_contact = _days_since(invoice.last_contacted_at, current_date)
         if days_since_contact >= 8:
             return ActionType.NEGOTIATION
         if days_since_contact >= 4:
@@ -109,16 +113,20 @@ def _normalize_action_type(value: str | ActionType) -> ActionType:
     return ActionType[str(value).upper()]
 
 
-def _contacted_within_frequency_cap(last_contacted_at: datetime | None) -> bool:
+def _contacted_within_frequency_cap(last_contacted_at: datetime | None, current_date: datetime | None = None) -> bool:
     if last_contacted_at is None:
         return False
-    return datetime.now() - last_contacted_at < timedelta(days=CONTACT_FREQUENCY_DAYS)
+    if current_date is None:
+        current_date = datetime.now()
+    return current_date - last_contacted_at < timedelta(days=CONTACT_FREQUENCY_DAYS)
 
 
-def _days_since(value: datetime | None) -> int:
+def _days_since(value: datetime | None, current_date: datetime | None = None) -> int:
     if value is None:
         return 10_000
-    return (datetime.now() - value).days
+    if current_date is None:
+        current_date = datetime.now()
+    return (current_date - value).days
 
 
 def _has_no_reply(invoice: Any) -> bool:

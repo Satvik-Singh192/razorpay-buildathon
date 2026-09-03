@@ -107,11 +107,12 @@ def run_batch_step(
         if invoice.risk_tier is None or new_reply_text:
             tier_invoice(invoice, None, session, latest_reply_text=new_reply_text)
 
+        current_datetime = datetime.combine(as_of_date, datetime.min.time())
         # 3. Determine proposed next action
-        proposed_action_type = determine_next_rung(invoice, invoice.promises)
+        proposed_action_type = determine_next_rung(invoice, invoice.promises, current_date=current_datetime)
 
         # 4. Evaluate action via policy engine
-        decision = evaluate_action(invoice, proposed_action_type, session)
+        decision = evaluate_action(invoice, proposed_action_type, session, current_date=current_datetime)
 
         # 5. If blocked, take no action
         if not decision.allowed:
