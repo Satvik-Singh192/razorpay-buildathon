@@ -10,3 +10,7 @@ wheels/
 # Virtual environments
 .venv
 temp.md
+
+# LLM response cache (persists across runs, never commit)
+cache/*.json
+.env

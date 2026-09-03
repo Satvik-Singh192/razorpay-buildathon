@@ -209,3 +209,16 @@ def approve_escalation(id: str, session: Session = Depends(get_db)):
         )
     )
     return {"message": "Escalation approved"}
+
+@app.post("/batch/reset")
+def reset_simulation():
+    from backend.models.schema import Base
+    from backend.db import engine
+    from backend.seed import seed_invoices
+    
+    Base.metadata.drop_all(bind=engine)
+    Base.metadata.create_all(bind=engine)
+    seed_invoices()
+    
+    app_state.current_date = date.today()
+    return {"status": "success", "message": "Database reset and reseeded"}
