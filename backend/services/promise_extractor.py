@@ -14,7 +14,7 @@ from backend.models import Invoice
 
 LOGGER = logging.getLogger(__name__)
 
-GEMINI_CHAT_COMPLETIONS_URL: Final = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions"
+GEMINI_CHAT_COMPLETIONS_URL: Final = "https://generativelanguage.googleapis.com/v1beta/gemini/chat/completions"
 DEFAULT_MODEL: Final = "gemini-1.5-flash"
 AUTO_APPLY_CONFIDENCE_THRESHOLD: Final = 0.6
 
@@ -77,7 +77,7 @@ def extract_promise(reply_text: str, invoice: Invoice) -> PromiseExtraction:
 
     key = os.getenv("GEMINI_API_KEY")
     if not key:
-        reason = "OpenAI API key missing, routing reply to human-review queue"
+        reason = "Gemini API key missing, routing reply to human-review queue"
         LOGGER.info(reason)
         return PromiseExtraction(
             amount=None,
@@ -169,7 +169,7 @@ def extract_promise(reply_text: str, invoice: Invoice) -> PromiseExtraction:
     }
 
     try:
-        response = _post_openai_chat_completions(key, payload)
+        response = _post_gemini_chat_completions(key, payload)
         content = response["choices"][0]["message"]["content"]
         parsed = json.loads(content)
     except (HTTPError, URLError, KeyError, IndexError, ValueError, TypeError, json.JSONDecodeError) as exc:
@@ -334,7 +334,7 @@ def _format_date(value: Any) -> str | None:
         return str(value)
 
 
-def _post_openai_chat_completions(api_key: str, payload: dict[str, Any]) -> dict[str, Any]:
+def _post_gemini_chat_completions(api_key: str, payload: dict[str, Any]) -> dict[str, Any]:
     request = Request(
         GEMINI_CHAT_COMPLETIONS_URL,
         data=json.dumps(payload).encode("utf-8"),

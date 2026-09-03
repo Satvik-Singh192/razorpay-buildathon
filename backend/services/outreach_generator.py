@@ -14,7 +14,7 @@ from backend.models import ActionType, RiskTier
 
 LOGGER = logging.getLogger(__name__)
 
-GEMINI_CHAT_COMPLETIONS_URL: Final = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions"
+GEMINI_CHAT_COMPLETIONS_URL: Final = "https://generativelanguage.googleapis.com/v1beta/gemini/chat/completions"
 DEFAULT_MODEL: Final = "gemini-1.5-flash"
 MAX_WORDS: Final = 120
 
@@ -35,7 +35,7 @@ def generate_outreach(
     api_key = os.getenv("GEMINI_API_KEY")
     if api_key:
         try:
-            response = _post_openai_chat_completions(api_key, payload)
+            response = _post_gemini_chat_completions(api_key, payload)
             content = response["choices"][0]["message"]["content"]
             message = _clean_plain_text(content)
             if message:
@@ -135,7 +135,7 @@ def _fallback_message(invoice: Any, debtor: Any, action: str, context: str) -> s
     return _limit_words(messages[action])
 
 
-def _post_openai_chat_completions(api_key: str, payload: dict[str, Any]) -> dict[str, Any]:
+def _post_gemini_chat_completions(api_key: str, payload: dict[str, Any]) -> dict[str, Any]:
     request = Request(
         GEMINI_CHAT_COMPLETIONS_URL,
         data=json.dumps(payload).encode("utf-8"),

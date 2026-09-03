@@ -17,7 +17,7 @@ from backend.models import AuditActor, AuditLog, Debtor, Invoice, RiskTier
 
 LOGGER = logging.getLogger(__name__)
 
-GEMINI_CHAT_COMPLETIONS_URL: Final = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions"
+GEMINI_CHAT_COMPLETIONS_URL: Final = "https://generativelanguage.googleapis.com/v1beta/gemini/chat/completions"
 DEFAULT_MODEL: Final = "gemini-1.5-flash"
 
 
@@ -76,7 +76,7 @@ def compute_base_risk_score(invoice: Any, debtor: Any) -> float:
 def adjust_for_reply_sentiment(base_score: float, latest_reply_text: str) -> float:
     """Adjust a base score using a narrowly-scoped sentiment signal.
 
-    This helper is intentionally forgiving: if the OpenAI API is unavailable or
+    This helper is intentionally forgiving: if the Gemini API is unavailable or
     the structured response is not trustworthy enough, it returns the base score
     unchanged rather than inventing a risky adjustment.
     """
@@ -165,7 +165,7 @@ def tier_invoice(
 def _analyze_reply_sentiment(base_score: float, latest_reply_text: str) -> SentimentAnalysis:
     key = os.getenv("GEMINI_API_KEY")
     if not key:
-        reason = "OpenAI API key missing, using base score without sentiment adjustment"
+        reason = "Gemini API key missing, using base score without sentiment adjustment"
         LOGGER.info(reason)
         return SentimentAnalysis("NEUTRAL", 1.0, _clamp(base_score), reason)
 
@@ -216,7 +216,7 @@ def _analyze_reply_sentiment(base_score: float, latest_reply_text: str) -> Senti
     }
 
     try:
-        response = _post_openai_chat_completions(key, payload)
+        response = _post_gemini_chat_completions(key, payload)
         content = response["choices"][0]["message"]["content"]
         parsed = json.loads(content)
         label = str(parsed["label"]).upper()
@@ -252,7 +252,7 @@ def _analyze_reply_sentiment(base_score: float, latest_reply_text: str) -> Senti
     return SentimentAnalysis(label, confidence, adjusted_score, reason)
 
 
-def _post_openai_chat_completions(api_key: str, payload: dict[str, Any]) -> dict[str, Any]:
+def _post_gemini_chat_completions(api_key: str, payload: dict[str, Any]) -> dict[str, Any]:
     request = Request(
         GEMINI_CHAT_COMPLETIONS_URL,
         data=json.dumps(payload).encode("utf-8"),
