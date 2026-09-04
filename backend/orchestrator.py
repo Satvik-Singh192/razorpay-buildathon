@@ -81,23 +81,14 @@ def run_batch_step(
     """Run one simulated day across all active invoices."""
     current_datetime = datetime.combine(as_of_date, datetime.min.time())
 
-    active_invoices = (
-        session.query(Invoice)
-        .options(
-            selectinload(Invoice.replies),
-            selectinload(Invoice.actions),
-            selectinload(Invoice.promises),
-            selectinload(Invoice.debtor),
-        )
-        .filter(Invoice.state.notin_([InvoiceState.CLOSED, InvoiceState.ESCALATED]))
-        .all()
-    )
-
     # -----------------------------------------------------------------------
     # PHASE 1 — Batch promise extraction for all invoices with new replies
     # -----------------------------------------------------------------------
     extraction_batch: list[tuple[str, Invoice, int | None, Reply]] = []
-    for invoice in active_invoices:
+    all_invoices = session.query(Invoice).options(
+        selectinload(Invoice.replies), selectinload(Invoice.debtor)
+    ).all()
+    for invoice in all_invoices:
         unprocessed = [r for r in invoice.replies if r.extraction_confidence is None]
         if unprocessed:
             latest_reply = unprocessed[-1]
@@ -269,10 +260,12 @@ def run_batch_step(
         ):
             if requires_human_approval:
                 # Escalation draft — commit action + AuditLog atomically
+                is_fallback = content.startswith("Dear ")
                 action = Action(
                     invoice_id=invoice.id,
                     type=action_type,
                     content=content,
+                    generated_by="FALLBACK" if is_fallback else "LLM",
                     policy_decision=PolicyDecisionEnum.ALLOWED,
                     policy_reason="Escalation draft — requires human approval before sending.",
                     timestamp=current_datetime,
@@ -290,10 +283,12 @@ def run_batch_step(
                 )
             else:
                 # Normal outreach — commit action + AuditLog atomically
+                is_fallback = content.startswith("Dear ")
                 action = Action(
                     invoice_id=invoice.id,
                     type=action_type,
                     content=content,
+                    generated_by="FALLBACK" if is_fallback else "LLM",
                     policy_decision=PolicyDecisionEnum.ALLOWED,
                     policy_reason=f"Policy allowed {action_type.value} outreach.",
                     timestamp=current_datetime,
