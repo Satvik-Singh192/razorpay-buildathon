@@ -19,12 +19,15 @@ class PaymentFeedSimulator:
         self,
         invoices: list[dict[str, Any]] | None = None,
         invoice_file: str | Path | None = None,
+        mode: str = "full"
     ):
+        self.mode = mode
         if invoices is None:
             path = Path(invoice_file) if invoice_file else Path(__file__).with_name("synthetic_invoices.json")
             with path.open("r", encoding="utf-8") as handle:
                 invoices = json.load(handle)
 
+        self._invoices = {inv["id"]: inv for inv in invoices}
         self._payments_by_invoice: dict[str, list[dict[str, Any]]] = {}
         for invoice in invoices:
             events = invoice.get("_simulation_truth", {}).get("payment_events", [])
@@ -36,9 +39,28 @@ class PaymentFeedSimulator:
         if events is None:
             raise KeyError(f"Unknown invoice_id: {invoice_id}")
 
+        invoice = self._invoices[invoice_id]
+        behavior = invoice.get("ground_truth_behavior")
+        
+        # Adjust payment logic based on mode
+        filtered_events = []
+        if self.mode == "none":
+            # No intervention: only half of quick payers pay
+            if behavior == "quick_payer" and hash(invoice_id) % 2 == 0:
+                filtered_events = events
+        elif self.mode == "naive":
+            # Naive reminder: quick payers pay, half of negotiators pay
+            if behavior == "quick_payer":
+                filtered_events = events
+            elif behavior == "negotiates_keeps_promise" and hash(invoice_id) % 2 == 0:
+                filtered_events = events
+        else:
+            # Full system: everybody who was going to pay, pays
+            filtered_events = events
+
         paid_events = [
             event
-            for event in events
+            for event in filtered_events
             if _parse_date(event["paid_at"]) <= as_of
         ]
         total_paid = sum(event["amount"] for event in paid_events)
